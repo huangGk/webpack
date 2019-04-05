@@ -14,10 +14,11 @@
 
 ## 常用的一些配置 ##
 - resolve.alias 配置某个模块(路径)的别名， Vue中的@就是通过webpack中的alias来进行配置的
+	- path.resolve用于将相对路径转换成绝对路径 __dirname当前模块的路径名
 	- alias: { @: path.resolve(__dirname, 'src') } 模糊匹配
 	- alias:{ @$:path.resolve(__dirname, 'src') } 精确匹配
 - resolve.extensions 作用：在进行解析模块路径的时候，webpack会尝试帮你补全那些后缀名来进行查找
-	- extensions:[ '.js', 'json', 'vue' ] 
+	- extensions:[ '.js', '.json', '.vue' ] 
 		- 引用index.vue文件的时候可以写成 import index from 'index' 因为webpack会自动补全后缀
 - resolve.modules 解析模块时应该搜索的目录
 	- modules: ['node_modules']  import React from 'react'，直接引用react,那么webpack会从node_modulse文件夹下面查找对应的依赖
