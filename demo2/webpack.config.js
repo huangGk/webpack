@@ -3,9 +3,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 删除之前webpack打包后的dist目录
 
 module.exports = {
-  entry: './src/index.js',
+  mode: 'development',
+  // development devtool: 使用cheap-module-eval-source-map
+  // production devtool: 使用cheap-module-source-map
+  devtool: 'cheap-module-eval-source-map',
+  entry: { // 配置多个入口文件
+    pagea: './src/index.js',
+    pageb: './src/index.js'
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
+    // publicPath: 'http://cdn.com', // 配置cdn
     path: path.resolve(__dirname, 'dist')
   },
   module: {
@@ -53,7 +61,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({ // 如果需要配置多个入口文件，就需要生成对应数量的html文件
       filename: 'index.html',
       template: 'src/index.html'
     }),

@@ -1,2 +1,3 @@
 - demo2
 	- 如何在webpack.config.js如何处理CSS文件以及图片，字体图标等静态文件
+	- 配置source-map输出代码中的报错地址
