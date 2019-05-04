@@ -12,16 +12,22 @@
 // 测试css模块热替换，css文件不需要写module.hot.accept的原因。是因为style-loader里面已经帮我们做了处理
 // ---------------------------------------------
 
-import counter from './counter';
-import number from './number';
+// import counter from './counter';
+// import number from './number';
 
-counter();
-number();
-if (module.hot) {
-  // 具体内容参考webpack官方文档 API 模块热替换里面的介绍 https://webpack.docschina.org/api/hot-module-replacement/
-  module.hot.accept('./number.js', () => {
-    // 监听number.js文件发生变化
-    document.body.removeChild(document.getElementById('number'));
-    number();
-  });
-}
+// counter();
+// number();
+// if (module.hot) {
+//   // 具体内容参考webpack官方文档 API 模块热替换里面的介绍 https://webpack.docschina.org/api/hot-module-replacement/
+//   module.hot.accept('./number.js', () => {
+//     // 监听number.js文件发生变化
+//     document.body.removeChild(document.getElementById('number'));
+//     number();
+//   });
+// }
+
+
+// es6通过babel转换成es5代码
+
+const arr = [new Promise(() => {}), new Promise(() => {})];
+arr.map(item => console.log(item));
