@@ -12,12 +12,6 @@ module.exports = {
   module: { // 如何处理项目中的不同类型的模块。
     rules: [
       {
-        test: /\.js?/, // 匹配文件规则
-        include: [path.resolve(__dirname, 'src')], // 解析路径
-        use: 'babel-loader', // 使用什么loader来解析
-        exclude: /node_modules/ // 不需要通过babel编译的目录
-      },
-      {
         test: /\.less$/,
         include: [path.resolve(__dirname, 'src')],
         use: ExtractTextPlugin.extract({

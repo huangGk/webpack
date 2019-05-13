@@ -21,7 +21,7 @@
 		    ]
 		  ]
 		}
-		3. 或者通过另一种方式来配置Babel(这种方法不会污染全局作用域)，需要安装 @babel/preset-env @babel/polyfill 这两个包，在webpack.config.js里面设置entry: ["@babel/polyfill", "./src/index.js"]，并且在rules里面针对js的规则里面添加一个
+		3. 或者通过另一种方式来配置Babel(这种方法会污染全局作用域)，需要安装 @babel/preset-env @babel/polyfill 这两个包，在webpack.config.js里面设置entry: ["@babel/polyfill", "./src/index.js"]，并且在rules里面针对js的规则里面添加一个
 		options: { 
 			// options具体配置参数可以参照Babel官网https://babeljs.io/docs/en/next/babel-preset-env.html
 			presets: [
@@ -29,7 +29,7 @@
 					'@babel/preset-env', 
 					{
 						target: {},
-						useBuiltIns: 'usage'
+						useBuiltIns: 'usage' 只打包用到的es6语法，到index.js文件里面
 					}
 				]
 			]
